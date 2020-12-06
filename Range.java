@@ -3,10 +3,10 @@ import java.util.NoSuchElementException;
 public class Range implements IntegerSequence{
   private int start,end,current;
 
-  public Range(int start,  int end){
-    start = this.start;
-    end = this.end;
-    current = this.start;
+  public Range(int s,  int e){
+    start = s;
+    end = e;
+    current = s;
   }
 
   public void reset(){
@@ -14,12 +14,11 @@ public class Range implements IntegerSequence{
   }
 
   public int length(){
-    return start - end + 1;
+    return end - start + 1;
   }
 
   public boolean hasNext(){
-    if (current < end) return true;
-    else return false;
+    return current != end + 1;
   }
 
   //@throws NoSuchElementException
@@ -27,7 +26,7 @@ public class Range implements IntegerSequence{
     if (hasNext() == false) throw new NoSuchElementException();
     else {
       current ++;
-      return current;
+      return current - 1;
     }
   }
 
