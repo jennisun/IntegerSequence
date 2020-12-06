@@ -23,6 +23,12 @@ public class Range implements IntegerSequence{
   }
 
   //@throws NoSuchElementException
-  public int next(){    }
+  public int next(){
+    if (hasNext() == false) throw new NoSuchElementException();
+    else {
+      current ++;
+      return current;
+    }
+  }
 
 }
