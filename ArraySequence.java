@@ -1,4 +1,5 @@
 import java.util.NoSuchElementException;
+
 public class ArraySequence implements IntegerSequence{
   int currentIndex;
   int []data;
@@ -9,4 +10,26 @@ public class ArraySequence implements IntegerSequence{
       data[i] = other[i];
     }
   }
+
+  public void reset(){
+    currentIndex = 0;
+  }
+
+  public int length(){
+    return data.length;
+  }
+
+  public boolean hasNext(){
+    return currentIndex != data.length;
+  }
+
+  //@throws NoSuchElementException
+  public int next(){
+    if (hasNext() == false) throw new NoSuchElementException();
+    else {
+      currentIndex ++;
+      return data[currentIndex];
+    }
+  }
+
 }
