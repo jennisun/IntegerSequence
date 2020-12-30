@@ -32,7 +32,7 @@ public class ArraySequence implements IntegerSequence{
   }
 
   public boolean hasNext(){
-    return currentIndex != data.length - 1;
+    return currentIndex != data.length;
   }
 
   //@throws NoSuchElementException
@@ -40,7 +40,7 @@ public class ArraySequence implements IntegerSequence{
     if (hasNext() == false) throw new NoSuchElementException();
     else {
       currentIndex ++;
-      return data[currentIndex];
+      return data[currentIndex - 1];
     }
   }
 
